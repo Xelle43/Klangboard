@@ -1,15 +1,19 @@
 #include "Button.h"
+#include "general.h"
 #include <raylib.h>
 
-Button::Button(Tab tab,Texture2D texture,int scale,int x,int y){
-    this->tab = tab;
+Button::Button(gerneral::btn_Group group,std::string name,Texture2D texture,int scale,int x,int y,gerneral::Tab tab){
+    this->group = group;
+    this->name = name;
     this->texture = texture;
     this->scale = scale;
     this->size = Vector2{(float)texture.width * scale,(float)texture.height * scale};
     this->x = x;
     this->y = y;
+    this->tab = tab;
 
 }
+
 
 void Button::Draw(){
     if(hovered)
@@ -19,22 +23,28 @@ void Button::Draw(){
     DrawTextureEx(texture, (Vector2){tempx, tempy}, 0.0f,  pressed ? scale * 0.8f: scale , WHITE);
   
 }
-Tab Button::GetTab(){
+gerneral::Tab Button::GetTab(){
     return tab;
 }
-bool Button::Update(Vector2 mousePos,bool mouseDown){
+gerneral::btn_Group Button::GetGroup(){
+    return group;
+}
+std::string Button::GetName(){
+    return name;
+}
+bool Button::Update(Vector2 mousePos){
     
     if(CheckCollisionPointRec(mousePos, Rectangle{x,y,size.x,size.y}))
     {
         hovered = true;
-        if(mouseDown)
+        if(IsMouseButtonDown(MOUSE_LEFT_BUTTON))
         {
             pressed = true;
-            return true;
         }
         else{
             pressed = false;
         }   
+        if(IsMouseButtonPressed(MOUSE_LEFT_BUTTON)) return true;
     }
     else{
         hovered = false;

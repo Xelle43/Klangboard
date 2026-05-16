@@ -1,27 +1,48 @@
 #include "UI.h"
+#include "Theme.h"
+#include <raylib.h>
 
-void RenderUI(std::vector<Button> buttonList, Tab currentTab)
+//800 450
+void SoundboardUI(float T_StartX,float T_StartY);
+void DrawOverlay();
+
+void RenderUI()
 {
     DrawRectangleLines(0, 0, 50, 450, Color_Line);
     DrawRectangleLines(50, 0, 750, 450, Color_Line);
 
-    for(auto& b : buttonList){
-        b.Draw();
-    }
+    DrawTabButtons();
     float T_StartX = 50;
     float T_StartY = 0;
     
-    switch(currentTab){
-        case Tab::Soundboard:
-            DrawText("Soundboard", 300, 200, 20, DARKGRAY);
+    switch(gerneral::currentTab){
+
+        case gerneral::Tab::Soundboard:
+            SoundboardUI(T_StartX,T_StartY);
             break;
-        case Tab::Mic:
+        case gerneral::Tab::Mic:
             DrawText("Mic", 300, 200, 20, DARKGRAY);
             break;
-        case Tab::Settings:
+        case gerneral::Tab::Settings:
             DrawText("Settings", 300, 200, 20, DARKGRAY);
             break;
-
-
+        default:
+        break;
     }
+}
+
+
+void SoundboardUI(float T_StartX,float T_StartY){
+    DrawRectangleLines(T_StartX, T_StartY, 750, 50, DARKGRAY);
+    DrawText("Soundboard", T_StartX +5,  T_StartY +15,25, DARKGRAY);
+    
+    DrawSoundboardButtons();
+    RenderSoundboard();
+    if(gerneral::ImportOverlay)DrawOverlay();
+}
+
+void DrawOverlay(){//800 450
+    DrawRectangle(0,0, 800,450, Color_OverlayBG);
+    DrawRectangle(50,50,700,350,LIGHTGRAY);
+
 }

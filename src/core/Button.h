@@ -3,6 +3,7 @@
 #include "general.h"
 
 #include <raylib.h>
+#include <string>
 class Button
 {
     private:
@@ -11,15 +12,22 @@ class Button
     float scale;
     float x,y;
     bool hovered,pressed;
-    Tab tab;
+    gerneral::Tab tab;
+    gerneral::btn_Group group;
+    std::string name;
+
+
     
 
 
     public:
-    Button(Tab tab,Texture2D texture,int scale,int x,int y);
+    Button(gerneral::btn_Group group,std::string name,Texture2D texture,int scale,int x,int y,gerneral::Tab tab);
     void Draw();
     void SetTexture(Texture2D texture);
-    bool Update(Vector2 mousePos,bool mouseDown);
-    Tab GetTab();
+    bool Update(Vector2 mousePos);
+    gerneral::Tab GetTab();
+    gerneral::btn_Group GetGroup();
+    std::string GetName();
 
+    
 };
