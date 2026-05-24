@@ -18,17 +18,14 @@ int main()
 
     LoadTextures();
     InitButtons();
-    
+    InitSoundboardAddButton();
+
     Color Color_BG = {44, 47, 54, 255};
 
     char filepath[512];
     char command[1024];
 
     getcwd(filepath, sizeof(filepath));
-
-    addSound("hi","hi");
-    addSound("hi","hi");
-    addSound("hi","hi");
 
 
 

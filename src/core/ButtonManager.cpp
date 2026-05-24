@@ -1,5 +1,7 @@
 #include "ButtonManager.h"
+#include "SoundBoard/SoundboardManager.h"
 #include "general.h"
+#include <raylib.h>
 
 void InitButtons(){
     Button Soundboard_btn(gerneral::btn_Group::Tab_Group,"Soundboard_Tab",Soundboard_Icon,2,0,180,gerneral::Tab::Soundboard);
@@ -7,13 +9,13 @@ void InitButtons(){
     Button Settings_btn(gerneral::btn_Group::Tab_Group,"Settings_Tab",Settings_Icon,2,0,400,gerneral::Tab::Settings);
 
     //Sidebar
-    Button ImportSound_btn(gerneral::btn_Group::Soundboard_Group,"ImportSound",Import_Icon,1.5,720,15,gerneral::Tab::None);
+    Button AddSound_btn(gerneral::btn_Group::Soundboard_Group,"AddSound",60,gerneral::AddSoundButtonY,Vector2{730,50},0.5);
 
 
     buttonList.push_back(Soundboard_btn);
     buttonList.push_back(Mic_btn);
     buttonList.push_back(Settings_btn);
-    buttonList.push_back(ImportSound_btn);
+    buttonList.push_back(AddSound_btn);
 }
 void DrawTabButtons(){
     for(auto& b : buttonList){
@@ -41,4 +43,9 @@ void UpdateButtons(){
         PressedButton = "";
 
         
+}
+void UpdateButtonPosY(float y, std::string buttonname){
+    for(auto& b : buttonList){
+        if(b.GetName() == buttonname) b.UpdateY(y);
+    }
 }

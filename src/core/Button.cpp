@@ -11,13 +11,21 @@ Button::Button(gerneral::btn_Group group,std::string name,Texture2D texture,int 
     this->x = x;
     this->y = y;
     this->tab = tab;
-
+    this->rounding = 0;
+}
+Button::Button(gerneral::btn_Group group,std::string name,int x,int y,Vector2 size,float rounding){
+    this->group = group;
+    this->name = name;
+    this->x = x;
+    this->y = y;
+    this-> size = size;
+    this->rounding = rounding;
 }
 
 
 void Button::Draw(){
     if(hovered)
-        DrawRectangle(x, y, size.x, size.y, GRAY);
+        DrawRectangleRounded(Rectangle{x,y,size.x,size.y},rounding,1,GRAY);
     float tempx = pressed ? x + ((size.x - (size.x * 0.8f))/2) : x;
     float tempy = pressed ? y + ((size.y - (size.y * 0.8f))/2) : y;
     DrawTextureEx(texture, (Vector2){tempx, tempy}, 0.0f,  pressed ? scale * 0.8f: scale , WHITE);
@@ -51,4 +59,7 @@ bool Button::Update(Vector2 mousePos){
         pressed = false;
     }
     return false;
+}
+void Button::UpdateY(float y){
+    this->y = y;
 }

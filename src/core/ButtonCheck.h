@@ -1,10 +1,11 @@
 #pragma once
 #include "ButtonManager.h"
 #include "general.h"
+#include "SoundBoard/SoundboardManager.h"
 
 inline void CheckButtons(){
-    if(PressedButton == "ImportSound"){
-        gerneral::ImportOverlay = !gerneral::ImportOverlay;
-        
+    if(PressedButton == "AddSound"){
+        addSound("New Sound", "");
     }
+
 }

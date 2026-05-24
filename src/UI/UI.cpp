@@ -38,11 +38,6 @@ void SoundboardUI(float T_StartX,float T_StartY){
     
     DrawSoundboardButtons();
     RenderSoundboard();
-    if(gerneral::ImportOverlay)DrawOverlay();
-}
-
-void DrawOverlay(){//800 450
-    DrawRectangle(0,0, 800,450, Color_OverlayBG);
-    DrawRectangle(50,50,700,350,LIGHTGRAY);
 
 }
+

@@ -11,4 +11,4 @@ extern Texture2D Soundboard_Icon;
 extern Texture2D Mic_Icon;
 extern Texture2D Settings_Icon;
 extern Texture2D Import_Icon;
-
+extern Texture2D Add_Icon;

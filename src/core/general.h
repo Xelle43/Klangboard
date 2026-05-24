@@ -18,7 +18,6 @@ enum btn_Group{
 inline btn_Group current_Group;
 
 
-inline bool ImportOverlay = false;
-
+inline float AddSoundButtonY = 60;
 
 }

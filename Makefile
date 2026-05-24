@@ -15,3 +15,5 @@ build:
 clean:
 	rm -rf build
 
+run:
+	cmake --build build && $(RUN)
