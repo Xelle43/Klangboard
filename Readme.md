@@ -24,14 +24,18 @@ Use the following commands:
 ```bash
 make all
 ```
-To just build:
+### To just build:
 ```bash 
 make build 
 ``` 
-to clean build files and deps
+### to clean build files and deps
 ```bash
 make clean
 ```
+### to only run 
+```bash
+make run
+```
 
 ## Usage
-Coming soon.
+Coming soon. 
