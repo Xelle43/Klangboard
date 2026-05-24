@@ -28,14 +28,15 @@ Use the following commands:
 make all
 ```
 ### To just build:
+### To just build:
 ```bash 
 make build 
 ``` 
-### to clean build files and deps
+### To clean build files and deps
 ```bash
 make clean
 ```
-### to only run 
+### To only run 
 ```bash
 make run
 ```
