@@ -7,7 +7,8 @@
 
 void InitButtons();
 void DrawTabButtons();
-void DrawSoundboardButtons();
+void DrawSoundboardButton();
+void UpdateSoundboardButton();
 void UpdateButtons();
 
 void UpdateButtonPosY(float y,std::string buttonname);

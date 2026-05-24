@@ -13,7 +13,7 @@
 
 int main()
 {
-    InitWindow(SCREEN_WIDTH, SCREEN_HEIGHT, "Hello Raylib");
+    InitWindow(SCREEN_WIDTH, SCREEN_HEIGHT, "AZAVDIAP");
     SetTargetFPS(60);
 
     LoadTextures();
@@ -34,6 +34,7 @@ int main()
         //Update
         UpdateButtons();
         CheckButtons();
+        UpdateSoundBoardBoxes();
 
         //Draw
         BeginDrawing();

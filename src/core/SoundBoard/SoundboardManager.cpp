@@ -8,6 +8,7 @@ void addSound(std::string name, std::string path){
     yPosAddButton = 60 +(counter * 60);
     SoundboardEntry newSound(name, path, tempy);
     Sounds.push_back(newSound);
+    gerneral::justAdded = true;
 
     for( auto& s : Sounds)
     {
@@ -37,4 +38,10 @@ std::string GetButtonPressedName(){
 void InitSoundboardAddButton(){
     SoundboardEntry button(60);
     Sounds.push_back(button);
+}
+void UpdateSoundBoardBoxes(){
+    for(auto& s: Sounds){
+        s.UpdateBoxes();
+    }
+    gerneral::justAdded = false; 
 }

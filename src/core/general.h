@@ -17,7 +17,8 @@ enum btn_Group{
 
 inline btn_Group current_Group;
 
-
 inline float AddSoundButtonY = 60;
 
+inline bool justAdded = false;
+inline float scrollOffset = 0.0f;
 }

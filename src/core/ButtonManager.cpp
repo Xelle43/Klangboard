@@ -23,14 +23,22 @@ void DrawTabButtons(){
             b.Draw();
     }
 }
-void DrawSoundboardButtons(){
+void DrawSoundboardButton(){
     for(auto& b : buttonList){
         if(b.GetGroup() == gerneral::btn_Group::Soundboard_Group)
             b.Draw();
     }
 }
+void UpdateSoundboardButton(){
+    for(auto& b : buttonList){
+        if(b.GetGroup() == gerneral::btn_Group::Soundboard_Group)
+            b.UpdateY(60 + (counter * 60.0f) - gerneral::scrollOffset);
+    }
+}
 
 void UpdateButtons(){
+        UpdateSoundboardButton();
+
         for(auto& b : buttonList){
          bool res = b.Update(GetMousePosition());
          if(res)

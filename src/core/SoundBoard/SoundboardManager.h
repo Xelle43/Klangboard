@@ -10,8 +10,11 @@ inline int counter = 0;
 inline std::string ButtonName;
 inline float yPosAddButton;
 
+
 void addSound(std::string name, std::string path);
 void RenderSoundboard();
 void CheckButtonPressed();
 void InitSoundboardAddButton();
+void UpdateSoundBoardBoxes();
 std::string GetButtonPressedName();
+

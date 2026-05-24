@@ -36,8 +36,21 @@ void SoundboardUI(float T_StartX,float T_StartY){
     DrawRectangleLines(T_StartX, T_StartY, 750, 50, DARKGRAY);
     DrawText("Soundboard", T_StartX +5,  T_StartY +15,25, DARKGRAY);
     
-    DrawSoundboardButtons();
-    RenderSoundboard();
+    if (GetMouseWheelMove() != 0) {
+        gerneral::scrollOffset -= GetMouseWheelMove() * 30.0f;
+        if (gerneral::scrollOffset < 0) gerneral::scrollOffset = 0;
+    }
+
+    float maxScroll = (counter * 60.0f) - 300.0f;
+    if (maxScroll < 0) maxScroll = 0;
+    if (gerneral::scrollOffset > maxScroll) gerneral::scrollOffset = maxScroll;
+
+   BeginScissorMode(T_StartX, T_StartY + 50, 750, 400);
+
+        DrawSoundboardButton();
+        RenderSoundboard();
+
+    EndScissorMode();
 
 }
 
